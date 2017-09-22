@@ -1,1 +1,1 @@
-texto javascript
+var text = "texto javascript";
