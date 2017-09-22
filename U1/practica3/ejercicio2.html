@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var x = 3/0;
+      var y = 0/0;
+      var z = null;
+      var a = undefined;
+      var sum1=x++;
+      var sum2=y++;
+      var sum3=z++;
+      var sum4=a++;
+
+      document.write("<p>La variable x tiene el valor " + x + " y es de tipo " + typeof(x) + "</p>");
+      document.write("<p>La variable y tiene el valor " + y + " y es de tipo " + typeof(y) + "</p>");
+      document.write("<p>La variable z tiene el valor " + z + " y es de tipo " + typeof(z) + "</p>");
+      document.write("<p>La variable a tiene el valor " + a + " y es de tipo " + typeof(a) + "</p>");
+      document.write("<p>La variable sum1 tiene el valor " + sum1 + " y es de tipo " + typeof(sum1) + "</p>");
+      document.write("<p>La variable sum2 tiene el valor " + sum2 + " y es de tipo " + typeof(sum2) + "</p>");
+      document.write("<p>La variable sum3 tiene el valor " + sum3 + " y es de tipo " + typeof(sum3) + "</p>");
+      document.write("<p>La variable sum4 tiene el valor " + sum4 + " y es de tipo " + typeof(sum4) + "</p>");
+    </script>
+  </body>
+</html>
