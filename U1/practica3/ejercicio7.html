@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 7</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    var fecha = new Date();
+    var dia= fecha.getDay();
+    switch (dia) {
+        case 0:
+          document.write("Es Domingo");
+          alert("Ánimo¡¡Quedan 6 dias para el fin de semana...");
+          break;
+        case 1:
+          document.write("Es Lunes");
+          alert("Venga que solo quedan 5 dias para el finde...");
+          break;
+        case 2:
+          document.write("Es Martes");
+          alert("4 días, VAMOS¡¡");
+          break;
+        case 3:
+          document.write("Es Miercoles");
+          alert("Ya esta aqui...3 días para el fin de semana");
+          break;
+        case 4:
+          document.write("Es Jueves");
+          alert("Empieza hacer planes, quedan 2 dias para el finde");
+          break;
+        case 5:
+          document.write("Es Viernes");
+          alert("Por fin es Viernes¡¡¡ 1 dia más...");
+          break;
+        default:
+          document.write("Es Sabado");
+          alert("YA ES FIN DE SEMANA¡¡¡");
+          break;
+    }
+
+    </script>
+  </body>
+</html>
