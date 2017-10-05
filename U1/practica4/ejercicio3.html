@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 3 Práctica 4</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    var edad= prompt("Introduce tu edad")||18;
+
+    //Función
+    var mayorEdad=function(ed){
+      var edadDef=parseInt(ed);
+      if(isNaN(edadDef)){
+        console.log("Error, no es un valor númerico");
+      }
+      if(edadDef>=18){
+          document.write("<li>Coca Cola,3€ <li>Cafe,5€ <li>Martini,9€ <li>Whisky,20€");
+      }else {
+          document.write("<li>Coca Cola,3€<li>Cafe,5€");
+      }
+
+    }
+
+    mayorEdad(edad);
+
+
+
+    </script>
+  </body>
+</html>

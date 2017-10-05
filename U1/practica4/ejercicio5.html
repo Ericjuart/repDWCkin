@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 5 Práctica 4</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    var operacion = prompt ("Introduce la operación que quieres calcular");
+    var resultado = eval (operacion);
+    if (isNaN(resultado) || resultado == "Inifity") {
+      console.log("Error, no es un numero o es infinito");
+    }else{
+      alert("El resultado de la operación"+operacion+" es "+resultado);
+    }
+    </script>
+  </body>
+</html>

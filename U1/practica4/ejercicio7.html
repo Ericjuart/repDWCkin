@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 7 Práctica 4</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var diasSemana=["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"];
+
+      // a) for (var i in diasSemana){
+      //   document.write(diasSemana[i]+"<br>");
+      // }
+      function diaUsuario(){
+        var dia = prompt("Introduce el dia de la semana(Númerico)")||4;
+        var diaInt = parseInt(dia);
+        if(typeof(diaInt) !== "number" || isFinite(diaInt)){
+          alert("Error, introduce el de la semana(1 al 7)");
+        }else{
+          switch (diaInt) {
+            case 1:
+              alert("es "+diasSemana[0])
+              break;
+            case 2:
+              alert("es "+diasSemana[1])
+              break;
+            case 3:
+              alert("es "+diasSemana[2])
+              break;
+            case 4:
+              alert("es "+diasSemana[3])
+              break;
+            case 5:
+              alert("es "+diasSemana[4])
+              break;
+            case 6:
+              alert("es "+diasSemana[5])
+              break;
+            case 7:
+              alert("es "+diasSemana[6])
+              break;
+            default:
+              alert("Error,el dia de la semana tiene que ser un numero del 1 al 7");
+              break;
+          }
+        }
+      }
+      diaUsuario();
+    </script>
+  </body>
+</html>
