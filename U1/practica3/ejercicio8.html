@@ -10,14 +10,13 @@
     var precio = prompt("Introduce el precio del producto: ");
     var rebaja = prompt("Introduce la rebaja del producto: ");
     var prec = parseInt.precio;
-    function rebajar(precio,rebaja){
+    function rebajar(){
       var rebajado = (precio*(100-rebaja))/100;
       alert("EL Producto vale "+prec+"€ y tiene una rebaja del "+rebaja+"%, el precio final son "+rebajado+"€");
     }
-    if(prec>0 && rebaja>0 && typeof(prec) = "number" ){
-      rebajar(precio,rebaja);
-    }
-    else {
+    if(prec>0 && rebaja>0 && typeof(prec) == "number" ){
+      rebajar();
+    }else {
       alert("ERROR, inrtoduzca un número real(positivo)");
     }
     </script>
