@@ -8,11 +8,15 @@
     <script type="text/javascript">
     var operacion = prompt ("Introduce la operación que quieres calcular");
     var resultado = eval (operacion);
-    if (isNaN(resultado) || resultado == "Inifity") {
-      console.log("Error, no es un numero o es infinito");
+
+    function calculadora(){
+    if (Number(resultado) || isFinite(resultado)) {
+      alert("El resultado de la operacion"+operacion+" es "+resultado);
     }else{
-      alert("El resultado de la operación"+operacion+" es "+resultado);
+      alert("Error, no es un numero o es infinito");
     }
+  }
+  calculadora();
     </script>
   </body>
 </html>

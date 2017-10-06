@@ -14,10 +14,9 @@
       function diaUsuario(){
         var dia = prompt("Introduce el dia de la semana(Númerico)")||4;
         var diaInt = parseInt(dia);
-        if(typeof(diaInt) !== "number" || isFinite(diaInt)){
-          alert("Error, introduce el de la semana(1 al 7)");
-        }else{
+        if(isFinite(diaInt) && !isNaN(diaInt)){
           switch (diaInt) {
+
             case 1:
               alert("es "+diasSemana[0])
               break;
@@ -43,6 +42,9 @@
               alert("Error,el dia de la semana tiene que ser un numero del 1 al 7");
               break;
           }
+        }else{
+          alert("Error, introduce el de la semana(1 al 7)");
+
         }
       }
       diaUsuario();

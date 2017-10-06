@@ -6,12 +6,12 @@
   </head>
   <body>
     <script type="text/javascript">
-      var mayorEdad=function(){
-        var edad= prompt("Introduce tu edad");
-        var edadDef=parseInt(edad)||18;
-        (edad=>18)?alert("Si"):alert("No");
+      var edad=18;
+      var mayorEdad = function(ed){
+        (edad>=18)?alert("Si"):alert("No");
+
       }
-      mayorEdad();
+      mayorEdad(edad);
     </script>
   </body>
 </html>

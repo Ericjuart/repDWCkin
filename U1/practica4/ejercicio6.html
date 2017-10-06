@@ -6,18 +6,19 @@
   </head>
   <body>
     <script type="text/javascript">
-      var ar1 = [2,6,true,"hola",4.5,"el",false,567];
+      var ar1 = [2,6,true,"hola",4.5,"el",false,567,"adios",-67];
       var ar2 = [];
+      var j = 0;
       for (var i = 0; i < ar1.length; i++) {
         console.log("Indice "+i+" contenido "+ar1[i]+" tipo "+typeof(ar1[i]));
         document.write("<p>"+ar1[i]+"</p>");
         ar1[i]=Number(ar1[i]);
-        if(isNaN(ar1[i]) == false){
+        if(!isNaN(ar1[i])){
           ar2[j]=ar1[i];
           j++;
         }
       }
-      
+      document.write(" longitud "+ar1.length+"<br>");
       console.log("Estos no son valores Not a Number");
       document.write("Estos no son valores Not a Number");
 
@@ -26,7 +27,7 @@
           document.write("<p>"+ar2[j]+"</p>");
 
       }
-
+      document.write(" longitud del array "+ar2.length)
     </script>
   </body>
 </html>

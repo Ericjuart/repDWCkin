@@ -8,13 +8,12 @@
     <script type="text/javascript">
     var edad= prompt("Introduce tu edad")||18;
 
-    //Función
-    var mayorEdad=function(ed){
-      var edadDef=parseInt(ed);
+      var edadDef=parseInt(edad);
+      var mayorEdad = function(){
       if(isNaN(edadDef)){
         console.log("Error, no es un valor númerico");
       }
-      if(edadDef>=18){
+      else if(edadDef>=18){
           document.write("<li>Coca Cola,3€ <li>Cafe,5€ <li>Martini,9€ <li>Whisky,20€");
       }else {
           document.write("<li>Coca Cola,3€<li>Cafe,5€");
@@ -22,7 +21,7 @@
 
     }
 
-    mayorEdad(edad);
+    mayorEdad();
 
 
 
