@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 1 Practica 5</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+      function generaSurtido(){
+        var surtido=["revistas","periodicos","refrescos","libros","chuches","tabaco","boligrafo","papas"];
+        return surtido;
+      }
+      function consultaPrecios(indice){
+        var precios=[2.5,1,1.5,5,0.50,4,1,1.20];
+        return precios[indice];
+      }
+      function mostrarSurtidoPrecio(surtido){
+        document.write("<table>");
+
+        for (var i = 0; i < surtido.length; i++) {
+          if(consultaPrecios(i)>0){
+            document.write('<td align="center"><img width=80px heitgh=80px src="'+surtido[i]+'.png" alt="'+surtido[i]+'"></td>');
+
+          }
+        }
+        document.write("<tr align='center'>");
+        for (var i = 0; i < surtido.length; i++) {
+          if(consultaPrecios(i)>0){
+            document.write('<td>'+ consultaPrecios(i) + '€</td>');
+          }
+        }
+        document.write("</tr>");
+        document.write("</table>");
+      }
+
+      // var surtido=generaSurtido();
+      // // alert(surtido);
+      // mostrarSurtidoPrecio(surtido);
+      // mostrarTodo();
+    </script>
+    <img src="principal.png" alt="verPrecios" onclick=mostrarSurtidoPrecio(generaSurtido())>
+  </body>
+</html>
