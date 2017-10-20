@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 4 Objetos</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var persona = new Object();
+      persona.nombre;
+      persona.apellidos;
+      persona.saludar=function(){
+        console.log ("Hola me llamo "+persona.nombre+" "+persona.apellidos);
+      }
+      function Persona(nom,ape){
+        this.nombre=nom||"Anonymus";
+        this.apellidos=ape;
+        this.saludar = function(){
+          console.log ("Hola me llamo "+this.nombre+" "+this.apellidos);
+        }
+
+      }
+      var persona1 = new Persona("","Martinez");
+      var persona2 = new Persona("Maria","Sanchez");
+
+      console.log(persona instanceof Persona);
+      console.log(persona1 instanceof Persona);
+      console.log(persona2 instanceof Persona);
+
+      console.log("Persona: "+persona.nombre+" "+persona.apellidos+" "+persona.saludar());
+      console.log("Persona1: "+persona1.nombre+" "+persona1.apellidos+" "+persona1.saludar());
+      console.log("Persona2: "+persona2.nombre+" "+persona2.apellidos+" "+persona2.saludar());
+    </script>
+  </body>
+</html>

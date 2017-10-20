@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 2 Objetos</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var coche=new Object();
+      coche.marca="Renault";
+      coche.ruedas=4;
+      coche.plazas=5;
+      coche.color="rojo cereza";
+      coche.pintar=function(){
+        this.color="White";
+      }
+      var coche2 = new Object();
+      coche2.marca="Renault";
+      coche2.ruedas=4;
+      coche2.plazas=5;
+      coche2.color="rojo cereza";
+      coche2.pintar=function(){
+        this.color="White";
+      }
+      var coche3 = new Object();
+      coche3.marca="Renault";
+      coche3.ruedas=4;
+      coche3.plazas=5;
+      coche3.color="rojo cereza";
+      coche3.pintar=function(){
+        this.color="White";
+      }
+      delete coche.plazas;// tambien lo hace por consola
+
+      console.log(Object.keys(coche)+" "+Object.keys(coche2)+" "+Object.keys(coche3));
+    </script>
+  </body>
+</html>

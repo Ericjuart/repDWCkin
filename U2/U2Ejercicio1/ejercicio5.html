@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 5 Objetos</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    var persona = new Object();
+      persona.nombre="Eric";
+      persona.apellidos="Juarez";
+      persona.telefono="654321987";
+      persona.edad=Math.floor( Math.random() * (100-1)+1);
+      persona.saludar=function(){
+        console.log ("Hola me llamo "+persona.nombre+" "+persona.apellidos);
+      }
+      persona.cumplirAnyo=function(){
+        persona.edad+=1;
+      }
+
+    function Persona(nom,ape,tel,edad){
+      this.nombre=nom||"Anonymus";
+      this.apellidos=ape;
+      this.telefono=tel;
+      this.edad=Math.floor( Math.random() * (100-1)+1);;
+      this.saludar = function(){
+        console.log ("Hola me llamo "+this.nombre+" "+this.apellidos);
+      }
+      this.cumplirAnyo=function(){
+        this.edad+=1;
+      }
+    }
+
+    var persona1 = new Persona("","Martinez","678051217");
+    var persona2 = new Persona("Maria","Sanchez");
+
+    console.log(persona);
+    console.log("tengo "+persona.edad+" años");
+    console.log(persona.saludar());
+    persona.cumplirAnyo();
+    console.log("tengo "+persona.edad+" años");
+
+    console.log(persona1);
+    console.log("tengo "+persona1.edad+" años");
+    console.log(persona1.saludar());
+    persona1.cumplirAnyo();
+    console.log("tengo "+persona1.edad+" años");
+
+    console.log(persona2);
+    console.log("tengo "+persona2.edad+" años");
+    console.log(persona2.saludar());
+    persona2.cumplirAnyo();
+    console.log("tengo "+persona2.edad+" años");
+    
+    </script>
+  </body>
+</html>
