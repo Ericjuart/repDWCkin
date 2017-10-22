@@ -6,17 +6,6 @@
   </head>
   <body>
     <script type="text/javascript">
-    var persona = new Object();
-      persona.nombre="Eric";
-      persona.apellidos="Juarez";
-      persona.telefono="654321987";
-      persona.edad=Math.floor( Math.random() * (100-1)+1);
-      persona.saludar=function(){
-        console.log ("Hola me llamo "+persona.nombre+" "+persona.apellidos);
-      }
-      persona.cumplirAnyo=function(){
-        persona.edad+=1;
-      }
 
     function Persona(nom,ape,tel,edad){
       this.nombre=nom||"Anonymus";
@@ -51,7 +40,7 @@
     console.log(persona2.saludar());
     persona2.cumplirAnyo();
     console.log("tengo "+persona2.edad+" años");
-    
+
     </script>
   </body>
 </html>

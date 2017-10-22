@@ -9,8 +9,6 @@
     function Persona(nom,ape,tel,edad){
       this.nombre=nom||"Anonymus";
       this.apellidos=ape;
-      var ape2 = this.apellidos.split(" ");
-      this.apellidos=ape2;
       this.telefono=tel;
       this.edad=Math.floor( Math.random() * (100-1)+1);;
       this.saludar = function(){
@@ -31,37 +29,36 @@
           this.notaM=5;
         }
       }
-      this.password=pass;
-      this.crearPassword= function(){
-        var nomMay = this.nombre.toUpperCase();
-        // var letraPass = nomMay.charAt(0);
-        // var apeMin = this.apellidos[0].toLowerCase();
-        // var apeSplit = apeMin.split("");
-        // for (var i = 0; i < apeSplit.length; i++) {
-        //   var rep3e = apeSplit[i].replace("e","3");
-        //   var rep4a = rep3e[i].replace("a","4");
-        // }
-        // var nletras = this.nombre.length();
-        // var conca1 = letraPass.concat(rep4a);
-        // var conca2 = conca1.concat(nletras);
-        // for (var i = 0; i < lista.length; i++) {
-        //   lista[i].password=conca2;
-        // }
-
-
-      }
     }
+    Estudiante.prototype.password="";
+    Estudiante.prototype.crearPassword= function(){
+      var nom = this.nombre;
+      var nomMay = nom.toUpperCase();
+      var letraPass = nomMay.charAt(0);
+      var ape=this.apellidos;
+      var apeSplit = ape.split(" ");
+      var apeMin = apeSplit[0].toLowerCase();
+
+      for (var i = 0; i < apeMin.length; i++) {
+        if(apeMin.search("e") >=0 || apeMin.search("a") >=0){
+          var rep3e= apeMin.replace("e","3");
+          var rep4a = rep3e.replace("a","4");
+        }
+      }
+      var nLetras = this.nombre.length;
+      var con = letraPass.concat(rep4a);
+      var conTodo = con.concat(nLetras);
+      this.password=conTodo;
+    }
+
+
+
     var lista= new Array(3);
     lista[0] = new Estudiante("","Martinez Juanola","678051217","","ingles","","");
-    lista[1] = new Estudiante("Maria","Sanchez Artero","693402383","","matematicas","","");
-    lista[2] = new Estudiante("Luis","Garcia Robles","678051217","","matematicas","","");
+    lista[1] = new Estudiante("Maria","Sanchez Artero","693402383","","matematicas","");
+    lista[2] = new Estudiante("Luis","Garcia Robles","678051217","","matematicas","");
 
-    for (var i = 0; i < lista.length; i++) {
-      console.log("El Estudiante de "+lista[i].estudios+","+lista[i].nombre+" "+lista[i].apellidos+" tiene una nota media de "+lista[i].notaM);
-    }
-    for (var i = 0; i < lista.length; i++) {
-      console.log("Nombre: "+lista[i].nombre+"; Primer Apellido: "+lista[i].apellidos[0]+"; Segundo Apellido: "+lista[i].apellidos[1]);
-    }
+
 
     </script>
   </body>
