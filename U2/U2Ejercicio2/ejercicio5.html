@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 5 Arrays</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function Persona(nom,ape,tel,edad){
+      this.nombre=nom||"Anonymus";
+      this.apellidos=ape;
+      this.telefono=tel;
+      this.edad=Math.floor( Math.random() * (100-1)+1);;
+      this.saludar = function(){
+        console.log ("Hola me llamo "+this.nombre+" "+this.apellidos);
+      }
+      this.cumplirAnyo=function(){
+        this.edad+=1;
+      }
+    }
+    function Estudiante(nom,ape,tel,edad,stu,nM){
+      Persona.call(this,nom,ape,tel,edad);
+      this.estudios=stu;
+      this.notaM=prompt("Introduce tu nota media: ");
+      var nM=parseFloat(this.notaM);
+      this.notaM= nM.toFixed(2);
+      this.Recuperar=function(){
+        if(this.notaM<5){
+          this.notaM=5;
+        }
+      }
+    }
+    var lista= new Array(3);
+    lista[0] = new Estudiante("","Martinez","678051217","","ingles","");
+    lista[1] = new Estudiante("Maria","Sanchez","693402383","","matematicas","");
+    lista[2] = new Estudiante("Luis","Martinez","678051217","","matematicas","");
+
+    //5. Copia el Array de objetos Estudiante que creaste en U2Ejercicios1, 6d y utiliza
+    //sort para ordenar a los estudiantes en función de la nota.
+
+    lista.sort(function(n1,n2){
+      return n2.notaM - n1.notaM;
+    });
+    for (var i = 0; i < lista.length; i++) {
+      console.log(lista[i].nombre+", NOTA: "+lista[i].notaM);
+    }
+    
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 1 Objeto Date</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var fecha = new Date();
+      // a. Muestra por consola el día (del 1 al 31)
+      console.log(fecha.getDate());
+
+      // b. Muestra por consola el mes (del 1 al 12)
+      console.log(fecha.getMonth());
+
+      // c. Muestra por consola el año
+      console.log(fecha.getFullYear())
+
+      // d. Muestra el día de la semana (Lunes, Martes, …)
+      var month = new Array();
+      month[0]="Lunes";
+      month[1]="Martes";
+      month[2]="Miercoles";
+      month[3]="Jueves";
+      month[4]="Viernes";
+      month[5]="Sabado";
+      month[6]="Domingo";
+
+      var dayString = month[fecha.getDay()];
+      console.log(dayString);
+
+      // e. Muestra la fecha completa con formato dd/mm/aaaa
+      console.log(fecha.toLocaleDateString());
+
+      //f. Muestra las horas (de 0 a 23)
+      console.log(fecha.getHours());
+      
+      //g. Muestra la fecha completa con formato dd/mm/aaaa HH:MM:SS
+      console.log(fecha.toLocaleString());
+    </script>
+  </body>
+</html>

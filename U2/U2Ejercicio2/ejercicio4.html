@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 4 Arrays</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+//  4. A partir del ejercicio anterior, utilizando every, some y reduce, muestra por
+// consola los resultados que se indican a continuación:
+      var array = new Array(4);
+      array[0] = "Elemento1";
+      array[1] = "elemento2";
+      array[2] = "Elemento3";
+      array[3] = "elemento4";
+
+      array.push("Penultimo","18");
+      array.unshift("Primero","Segundo");
+
+        // a. Si todos los elementos del array son de tipo Number
+        console.log(array.every(function(num){
+          return num==Number();
+        }));
+        //b. Si alguno de los elementos del array es menor de 20
+        console.log(array.some(function(num){
+          return num<20;
+        }));
+        //c. Utiliza el método reduce() para obtener la suma del array siguiente:
+        //var a = [4, 21, 33, 12, 9, 54];
+        var a = [4, 21, 33, 12, 9, 54];
+        function suma(total,num){
+          return total+num;
+        }
+        function getSum(){
+          console.log(a.reduce(suma));
+        }
+
+
+
+    </script>
+  </body>
+</html>

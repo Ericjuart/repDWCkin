@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 2 Objetos Date</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    //a. Solicite al usuario la fecha de las próximas vacaciones con un formato string
+    //tipo “aaaa-mm-dd” o “aaaa/mm/dd”.
+
+    var vacas = prompt("Introduce la fecha de tus vacaciones:(aaaa-mm-dd || aaaa/mm/dd) ");
+
+    // b. Convierte la fecha anterior en un objeto Date y calcula cuántos milisegundos
+    // quedan hasta esa fecha.
+
+    var fecha = new Date(vacas);
+    var actual = new Date();
+
+    var mseg = fecha.getTime();
+    var mseg1 = actual.getTime();
+    var total = mseg - mseg1;
+    console.log(total);
+    // c. Calcule cuántos días quedan hasta esa fecha
+    var day = total/86400000;
+    console.log(day);
+    //86.400.000 son los milisegundos que tiene un dia
+    </script>
+  </body>
+</html>

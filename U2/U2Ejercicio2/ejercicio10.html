@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 10 Temporizador</title>
+  </head>
+  <body>
+    <button onclick="hora = setInterval(tiempo,1000)">Hora actual</button>
+    <button onclick="clearTimeout(hora)">STOP</button>
+    <script type="text/javascript">
+
+    function tiempo (){
+      var hora = new Date();
+      console.log(hora.toLocaleTimeString());
+    }
+    </script>
+  </body>
+</html>
