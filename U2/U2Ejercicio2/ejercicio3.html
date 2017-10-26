@@ -19,21 +19,22 @@
     //toString()
     console.log(array.toString());
     //d) Elimina las posiciones de la 3 a la 5 (incluidas)
-    console.log(array.slice(3,6));
-    //e) Inserta el número 10 y el 25 entre el penúltimo y el último
-    array.splice(7,0,10,25);
+    array.splice(3,2);
+    console.log("Se ha eliminado las posiciones 3-5:"+array);
+    // e) Inserta el número 10 y el 25 entre el penúltimo y el último
+    array.splice(5,0,10,25);
     console.log(array);
-    //f) Muestra el array del paso anterior, pero con los elementos separados por "==>" utilizando join().
+    // f) Muestra el array del paso anterior, pero con los elementos separados por "==>" utilizando join().
     console.log(array.join(" ==> "));
-    //g) Copia el array anterior en otra variable e invierte el orden de los elementos con esa segunda variable.
+    // g) Copia el array anterior en otra variable e invierte el orden de los elementos con esa segunda variable.
     var arrayCopia = array.reverse();
-    //h) Muestra los dos arrays (directamente, sin join() ni toString()). ¿Puedes explicar qué ha pasado con los dos arrays y por qué?
+    // h) Muestra los dos arrays (directamente, sin join() ni toString()). ¿Puedes explicar qué ha pasado con los dos arrays y por qué?
     console.log(array);
     console.log(arrayCopia);
-    // modifica el contenido de los dos arrays porque no copia el contenido si no la direccion de memoria.
-
+    //  modifica el contenido de los dos arrays porque no copia el contenido si no la direccion de memoria.
+    //
     // i) Consulta en qué índice del array está el 25 y en qué índice está un elemento que no esté en el array.
-
+    //
     console.log("El  numero 25 esta en la posicion del array:"+array.indexOf(25));
     console.log(array.indexOf(60));
     //el numero 60 devuelve la posicion -1 ya no existe ninguna posicion que contenga ese valor
