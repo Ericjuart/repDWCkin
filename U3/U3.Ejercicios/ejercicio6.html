@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Crea elementos del DOM</title>
+    <script type="text/javascript">
+    onload = function creaDOM(){
+    /*Aquí se escribe lo que sea necesario*/
+      var titular = document.createElement("h1");
+      var textoTitular = document.createTextNode("Este es el titulo");
+      titular.appendChild(textoTitular);
+      document.body.appendChild(titular);
+      document.querySelector("h1").style.color = "blue";
+      document.querySelector("h1").style.fontType = "Arial";
+
+      var crearImagen = document.createElement("img");
+      document.body.appendChild(crearImagen);
+      var imagen = document.querySelector("img");
+      imagen.setAttribute("src","http://imagenpng.com/wp-content/uploads/2015/09/Imagenn-PNG.png");
+      imagen.style.height = "50px";
+      imagen.style.weight = "50px";
+    }
+
+    </script>
+
+  </head>
+  <body>
+
+  </body>
+</html>
