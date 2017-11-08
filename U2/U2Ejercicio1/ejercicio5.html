@@ -10,8 +10,7 @@
     function Persona(nom,ape,tel,edad){
       this.nombre=nom||"Anonymus";
       this.apellidos=ape;
-      this.telefono=tel;
-      this.edad=Math.floor( Math.random() * (100-1)+1);;
+      this.telefono = tel;
       this.saludar = function(){
         console.log ("Hola me llamo "+this.nombre+" "+this.apellidos);
       }
@@ -20,19 +19,18 @@
       }
     }
 
-    var persona1 = new Persona("","Martinez","678051217");
-    var persona2 = new Persona("Maria","Sanchez");
+    Persona.prototype.edad="";
+    this.edad=Math.floor((Math.random() * 100)+1);
+    var persona1 = new Persona("","Martinez","678051217","");
+    var persona2 = new Persona("Maria","Sanchez","6754768","");
 
-    console.log(persona);
-    console.log("tengo "+persona.edad+" años");
-    console.log(persona.saludar());
-    persona.cumplirAnyo();
-    console.log("tengo "+persona.edad+" años");
+
+
 
     console.log(persona1);
     console.log("tengo "+persona1.edad+" años");
     console.log(persona1.saludar());
-    persona1.cumplirAnyo();
+    // persona1.cumplirAnyo();
     console.log("tengo "+persona1.edad+" años");
 
     console.log(persona2);

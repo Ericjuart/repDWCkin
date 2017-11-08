@@ -7,17 +7,19 @@
   <body>
     <script type="text/javascript">
   //6. Crea un array con diferentes tipos de valores (números, strings, booleanos).
+
     //a. A partir de dicho array, utilizando map(), genera otro array con dichos
     //valores convertidos todos a número.
+
       var array = [2,true,"Hola","Mundo",5,false];
-      console.log(array.map(function(num){
+      var a = array.map(function(num){
         return Number(num);
-      }));
+      });
+      console.log(a);
       //b. Utiliza filter para no incluir en el array final los elementos que no hayan
       //podido ser convertidos (NaN).
 
-
-      console.log(array.filter(function(num){
+      console.log(a.filter(function(num){
         return !isNaN(num);
       }));
 

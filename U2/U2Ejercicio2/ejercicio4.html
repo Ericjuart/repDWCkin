@@ -19,7 +19,7 @@
 
         // a. Si todos los elementos del array son de tipo Number
         console.log(array.every(function(num){
-          return num==Number();
+          return type(num)=="number";
         }));
         //b. Si alguno de los elementos del array es menor de 20
         console.log(array.some(function(num){
