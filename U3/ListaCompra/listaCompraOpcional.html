@@ -8,31 +8,37 @@
         var caja = document.getElementsByTagName('input')[0];
         añadirElemento= function(){
           if (caja != "" && selector.value != 0){
+
             var miP = document.createElement("p");
             document.body.appendChild(miP);
             var texto = document.body.children[1].value;
             miP.style.color = selector.value;
             miP.innerHTML=texto;
-            miP.setAttribute("onclick","borrar()");
+            var carniceria = document.createElement("div");
+            var pescaderia = document.createElement("div");
+            var congelados = document.createElement("div");
+            var Perfumaria = document.createElement("div");
+            var carniceria = document.createElement("div");
           }
+            miP.setAttribute("onclick","borrar()");
+
           borrar = function(){
             var a = document.querySelector("p:hover");
             a.parentNode.removeChild(a);
           }
-
 
         }
         borrarLista = function(){
           // guardo la longitud del array y puedo borrar desde el ultimo al
           // primero(i--) o borrar siempre el elemento
           // en la posicion 0
-          var np = document.getElementsByTagName("p").length;
+          var np = document.getElementsByTagName("div").length;
           for (var i = 0; i < np; i++) {
-            var ip = document.getElementsByTagName("p")[0];
+            var ip = document.getElementsByTagName("div")[0];
             document.body.removeChild(ip);
           }
         }
-      }
+    }
     </script>
   </head>
   <body>
