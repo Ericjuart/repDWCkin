@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ejercicio 8</title>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded",function(){
+        document.addEventListener("keydown",function(e){
+          var wid=document.getElementsByTagName("img")[0];
+          if (e.key =="+") {
+            if (wid.width<1000) {
+              wid.width+=25;
+            }else{
+              console.log("el tamaño es mayor a 1024px");
+            }
+          }else if (e.key=="-") {
+            wid.width= wid.width-25;
+          }
+        });
+      });
+    </script>
+
+  </head>
+  <body>
+    <img src="strange.jpg" alt="imagen" width="150px">
+  </body>
+</html>

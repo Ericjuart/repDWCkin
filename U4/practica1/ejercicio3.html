@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ejercicio 3</title>
+    <script type="text/javascript">
+      // Utilizando la información que proporciona event,
+      // realiza una web que muestre las coordenadas X e Y
+      // del ratón por consola mientras el usuario pulse la
+      // letra shift y se mueva por el elemento body.
+
+      document.addEventListener("mousemove",function(){
+        if (event.shiftKey) {
+          console.log("coordenadas X:"+event.clientX+" coordenadas Y:"+event.clientY);
+        }
+      },true);
+
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

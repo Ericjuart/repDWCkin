@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ejercicio 4</title>
+    <script type="text/javascript">
+      // Utilizando el manejo de eventos del DOM 2, realiza una página que
+      // muestre una imagen de manera que esa imagen cambie cuando el ratón
+      // pase por encima de la imagen y que vuelva a cambiar cuando salga de ella.
+    addEventListener("DOMContentLoaded",function(){
+      var imagen = document.getElementsByTagName('img')[0];
+       imagen.addEventListener("mouseout",cambia);
+       function cambia(){
+         imagen.src="strange2.jpg";
+       }
+       imagen.addEventListener("mouseover",cambiaOtra);
+       function cambiaOtra(){
+           imagen.src="strange1.jpg";
+         }
+
+      // Incluye en la web anterior, un enlace con la frase “Deshabilitar cambio de imagen” con el atributo href=”#nonavegar”.
+      // Cuando pulsemos en el enlace, deben deshabilitarse los eventos anteriores y además el usuario no debe navegar al href del enlace.
+
+      var deshabilita = document.getElementsByTagName("a")[0];
+
+      deshabilita.addEventListener("click",function(){
+        event.preventDefault();
+        imagen.removeEventListener("mouseout",cambia);
+        imagen.removeEventListener("mouseover",cambiaOtra);
+      })
+    });
+    </script>
+<style media="screen">
+  body{
+    text-align: center;
+  }
+</style>
+  </head>
+  <body>
+    <img src="strange1.jpg" alt="imag" height="500px" width="700px">
+    <br>
+    <br>
+    <a href="#nonavegar">Dehabilitar cambio de imagen</a>
+  </body>
+</html>

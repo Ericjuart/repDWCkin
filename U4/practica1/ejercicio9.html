@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ejercicio 9</title>
+    <script type="text/javascript">
+
+
+        function dimensionar(){
+          var txt = "La anchura es :"+window.outerWidth+", La altura es: "+window.outerHeight;
+          document.getElementById('cuerpo').innerHTML = txt;
+        }
+
+    </script>
+  </head>
+  <body onresize="dimensionar()">
+    <div id="cuerpo">
+
+    </div>
+  </body>
+</html>

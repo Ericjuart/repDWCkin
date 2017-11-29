@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ejercicio 6</title>
+    <script type="text/javascript">
+      // Crea una web que cuando el usuario pulse la tecla Shift,
+      // cambie el texto a mayúsculas y cuando vuelva a pulsar pase a minúsculas.
+      document.addEventListener("DOMContentLoaded",function(){
+        var miP= document.getElementsByTagName("p")[0];
+        var i=0;
+        document.addEventListener("keydown",function(){
+          if (event.shiftKey && i%2==0) {
+            miP.style.textTransform = "uppercase";
+            i++
+          }else if(event.shiftKey && i%2==1){
+                miP.style.textTransform = "lowercase";
+                i++
+          }
+          else{
+            console.log("no has apretado la tecla shift");
+          }
+        })
+      });
+
+    </script>
+  </head>
+  <body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+      voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+      anim id est laborum.
+    </p>
+  </body>
+</html>

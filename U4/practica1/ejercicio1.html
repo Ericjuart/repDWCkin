@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>eventos</title>
+    <script type="text/javascript">
+
+// -----------forma1--------------------
+    onload = function(){
+      titulo.onwheel = function(e){
+        titulo.style.backgroundColor = 'yellow';
+      }
+    }
+    // ------------forma2---------------
+    oncontextmenu = function(e){
+      e.preventDefault();
+      e.target.style.border = '1px solid black';
+    }
+    // ---------------forma3-------------------
+    function forma3(t){
+      t.style.color = 'green';
+    }
+    // ---------------forma4-------------------
+    function forma4(e){
+      e.target.style.fontFamily = 'Arial';
+      parrafo.style.fontWeight = 'bold';
+    }
+    // ----------------forma5--------------------
+
+    </script>
+  </head>
+  <body>
+    <!-- Crea una web que contenga elementos p, div, h1, h2 y h3
+     con texto que cambiarán su contenido cuando se produzca
+     un evento de la siguiente manera: -->
+     <h1 id="titulo">Esto es un h1</h1>
+     <br>
+     <h2 id="h2" ondblclick="h2.style.color='green';">esto es un h2</h2>
+     <br>
+     <h3>esto es un h3</h3>
+     <br>
+     <div onmouseenter="forma3(this); ">Esto es un div</div>
+     <br>
+     <p id="parrafo" onmousedown="forma4(event)">esto es un parrafo</p>
+  </body>
+</html>
