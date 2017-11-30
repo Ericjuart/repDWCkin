@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Elige tu regalo</title>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded",function(){
+        var i=0;
+
+        document.getElementById("caja1").addEventListener("contextmenu",pistaCaja1);
+        function pistaCaja1(e){
+          e.preventDefault();
+          caja1.innerHTML="podras hablar cuando quieras";
+          caja1.style.fontSize="20px";
+        console.log(e.target.id);
+          var tool1 = document.querySelector(".caja1");
+          console.log(tool1);
+          tool1.style.opacity=1;
+          tool1.style.visibility="visible";
+        }
+        document.getElementById("caja1").addEventListener("click",regalo1);
+        function regalo1(){
+          i++;
+          console.log(i);
+          var img1 = document.createElement("img");
+          caja1.appendChild(img1);
+          img1.setAttribute("src","iphone.jpg");
+          img1.style.width="90%";
+          img1.style.height="75%";
+          alert("Te ha tocado un iphone X");
+          if(i%2!=0){
+            document.getElementById("caja1").removeEventListener("click",regalo1);
+            document.getElementById("caja2").removeEventListener("click",regalo2);
+            document.getElementById("caja3").removeEventListener("click",regalo3);
+          }
+        }
+
+        document.getElementById("caja2").addEventListener("contextmenu",pistaCaja2);
+        function pistaCaja2(e){
+          e.preventDefault();
+          caja2.innerHTML="recorreras grandes distancias";
+          caja2.style.fontSize="20px";
+          var tool2 = document.getElementsByClassName("tooltiptext")[1];
+          console.log(tool2);
+          tool2.style.opacity=1;
+          tool2.style.visibility="visible";
+        }
+        document.getElementById("caja2").addEventListener("click",regalo2)
+        function regalo2(e){
+          i++;
+          console.log(i);
+          var img2 = document.createElement("img");
+          caja2.appendChild(img2);
+          img2.setAttribute("src","coche.jpg");
+          img2.style.width="90%";
+          img2.style.height="75%";
+          alert("Te ha tocado un Seat Leon");
+          if(i%2!=0){
+            document.getElementById("caja1").removeEventListener("click",regalo1);
+            document.getElementById("caja2").removeEventListener("click",regalo2);
+            document.getElementById("caja3").removeEventListener("click",regalo3);
+          }
+        }
+
+        document.getElementById("caja3").addEventListener("contextmenu", pistaCaja3);
+        function pistaCaja3(e){
+          e.preventDefault();
+          caja3.innerHTML="tendras la llave para ser el rey/reina";
+          caja3.style.fontSize="20px";
+          var tool3 = document.getElementsByClassName("tooltiptext")[2];
+          tool3.style.opacity=1;
+          tool3.style.visibility="visible";
+        }
+        document.getElementById("caja3").addEventListener("click",regalo3);
+        function regalo3(e){
+            i++;
+            alert("Te ha tocado un pisito a primera linea de playa en Benicassim");
+            if(i%2!=0){
+              document.getElementById("caja1").removeEventListener("click",regalo1);
+              document.getElementById("caja2").removeEventListener("click",regalo2);
+              document.getElementById("caja3").removeEventListener("click",regalo3);
+            }
+          var img3 = document.createElement("img");
+          caja3.appendChild(img3);
+          img3.setAttribute("src","casa.jpg");
+          img3.style.width="90%";
+          img3.style.height="75%";
+
+
+        }
+
+      })
+    </script>
+  </head>
+  <style media="screen">
+  *{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+  }
+  body{
+    text-align: center;
+  }
+  div{
+    float: left;
+
+  }
+  h1{
+    margin-bottom: 20px;
+  }
+  #caja1,#caja2,#caja3{
+      text-align: center;
+      border: 2px solid black;
+      background-color: lightgrey;
+      margin: 20px;
+      padding: 5px;
+      height: 500px;
+      width: 30%;
+      font-size: 100px;
+  }
+  /*--------------------------tooltip--------------------------------*/
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width:auto;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    font-size: 20px;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/*.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}*/
+  </style>
+  <body>
+    <h1>Escoge tu regalo</h1>
+    <p><b>Click derecho:</b> Pista</p><p><b>click izquierdo:</b> Abre la caja elegida</p>
+    <br>
+    <div id="caja1" class="tooltip">?
+      <span class="tooltiptext caja1">Podras hablar cuando quieras</span>
+    </div>
+    <div id="caja2" class="tooltip">?
+      <span class="tooltiptext caja2">recorreras grandes distancias</span>
+    </div>
+    <div id="caja3" class="tooltip">?
+      <span class="tooltiptext caja3">Te ha tocado un pisito a primera linea de playa en Benicassim</span>
+    </div>
+
+  </body>
+</html>
