@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>U4 Práctica 2: Formulario</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script type="text/javascript">
+      onload = function(){
+        var formulario = document.forms[0];
+        formulario.onsubmit = function(e){
+        var err = document.getElementsByClassName("errores")[0];
+        var errores = "";
+        var ret = true;
+        e.preventDefault();
+        var input = document.getElementsByTagName("input");
+        // ejercicio 1.a
+        for (var i = 0; i < input.length; i++) {
+          input[i].addEventListener("focusin",function(e){
+            e.target.style.outline= "1px solid purple";
+          })
+        }
+        for (var i = 0; i < input.length; i++) {
+          input[i].addEventListener("focusout",function(e){
+            e.target.style.outline="none";
+          })
+        }
+        // ejerciico 1.b.i
+          var nom = document.getElementById("nombre");
+          var ape = document.getElementById("apellidos");
+          if (nom.value == null || ape.value == null) {
+
+            errores =+ "Los campos nombre y apellidos son obligatorios<br>";
+            ret = false;
+          }
+          if (!(/^\S+[\s?\S+]*$/.test(nom.value)) || !(/^\S+[\s?\S+]*$/.test(ape.value))){
+               errores += "el nombre o el apellido son erroneos<br>";
+          }
+
+
+        //ejericcio 1.b.ii
+
+          var email = document.getElementById("email").value;
+          var reemail = document.getElementById("emailRepe").value;
+
+          console.log(email);
+          if ( !/^\w+@\w+\.\w+$/.test(email) ){
+            errores += "El email es incorrecto <br/>";
+            ret = false;
+          }
+          if ( ! (/^\w+([\.\-\+]?\w+)*@\w+([\.\-]?\w+)*(\.\w{2,4})+$/.test(email)) ){
+            errores += "El email es incorrecto <br/>";
+            ret = false;
+          }
+
+          if(email != reemail){
+            errores += "El email repetido debe coincidir con el primer email que introdujo <br/>";
+            ret = false;
+          }
+
+        // ejercicio 1.b.iii
+
+        var valor = document.getElementById("dni").value;
+        var letras = ['T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E','T'];
+        if( !(/^\d{8}[A-Z]$/.test(valor)) ){
+          errores+="es erroneo el dni<br>";
+          return false;
+        }else {
+
+          console.log("es correcto el dni");
+        }
+        if(valor.charAt(8) != letras[(valor.substring(0, 8))%23]){
+          errores+="el dni es erroneo<br>";
+          return false;
+        }
+
+
+      // ejercicio 1.b.iv
+
+        var fecha = (document.getElementById('fecha')[0].value).split('-');
+        var ano=fecha[0];
+        var mes=fecha[1];// de 0 a 11
+        var dia=fecha[2];// 1 a 31
+        console.log(dia + " " + mes + " " + " " + ano);
+        var nf= new Date(ano,(mes - 1),dia);
+        console.log(nf);
+
+        var hoy = new Date();
+        //resto los años de las dos fechas
+       	var edad = hoy.getFullYear()- ano - 1; //-1 porque no se si ha cumplido años ya este año
+       	//si resto los meses y me da mayor que 0, ha cumplido años
+       	if (hoy.getMonth() + 1 - mes > 0){
+          	edad++;
+        }
+       	//si resto los dias y me da menor que 0 entonces no ha cumplido años.
+        //si da mayor o igual si ha cumplido
+       	if (hoy.getUTCDate() - dia >= 0){
+          	edad++;
+        }
+        console.log("Edad " + edad);
+        if ( isNaN(nf) || dia < 1 || dia > 31 || mes < 1 || mes > 12 || ano < 0 || ano >= hoy.getFullYear()){
+          errores += "La fecha es errónea <br>"
+          ret = false;
+        }else if (edad < 18){
+          errores += "Debe ser mayor de edad para inscribirse <br/>"
+          ret = false;
+        }
+
+
+      // ejercicio 1.b.v
+
+
+        var favorito = document.getElementById("selector").value;
+        if (favorito == 0 ) {
+          errores+="debe seleccionar una seccion favorita<br>";
+          ret = false;
+        }else {
+          console.log("ha seleccionado una seccion favorita");
+        }
+
+
+      // ejercicio 1.b.vi
+
+        if (efectivo.checked==false && tarjeta.checked==false) {
+          errores+="debe seleccionar el metodo de pago<br>";
+          ret = false;
+        }
+
+      //ejercicio 1.b.vii
+        if (cond.checked==false) {
+          errores+="no ha aceptado las condiciones<br>";
+          ret = false;
+        }
+
+        //Resultado de la validación.
+        if (ret){
+          //Si estamos aquí es que no ha habido ningún problema
+          errores = "Tu petición se ha enviado correctamente";
+          err.style.color="blue";
+          formulario.submit();
+        }else{
+          err.style.color="red";
+        }
+        err.innerHTML=errores;
+        return ret;
+    }
+}
+    </script>
+  </head>
+  <body>
+    <form id="formulario" action="#" method="post" enctype="application/x-www-urlencoded">
+    <!--Zona info personal-->
+    <h1>Formulario alta</h1>
+    <fieldset>
+    <legend>Información personal</legend>
+    <div>
+    <label for="nombre">Nombre*:</label>
+    <input type="text" name="nombre" id="nombre" autofocus="autofocus" placeholder="Introduce el nombre..."></input>
+    </div>
+
+    <div>
+    <label for="apellidos">Apellidos*:</label>
+    <input type="text" name="apellidos" id="apellidos"></input>
+    </div>
+
+    <div>
+    <label for="email">Email*:</label>
+    <input type="email" name="email" id="email"></input>
+    </div>
+
+    <div>
+    <label for="email">Repetir email*:</label>
+    <input type="email" name="email" id="emailRepe"></input>
+    </div>
+
+    <div>
+    <label for="dni">DNI:</label>
+    <input type="text" name="dni" id="dni"></input>
+    </div>
+
+    <div id="inputFecha">
+    <label for="fecha">Fecha nacimiento*:</label>
+    <input type="date" name="fecha" id="fecha"></input>
+    </div>
+
+    <div id="seccion">
+    <label for="selector">Sección favorita*:</label>
+    <select name="seccion" id="selector">
+    <option value="0">Escoge una sección </option>
+    <option value="discos">Discos</option>
+    <option value="libros">Libros</option>
+    <option value="tecnologia">Tecnología</option>
+    </select>
+    </div>
+    <div>
+      <p>Modo preferente de pago*:</p>
+    </div>
+    <div id="radio">
+      <label for="efectivo">Efectivo
+      <input type="radio" name="efectivo" id="efectivo" value="efectivo"></input>
+      </label>
+      <label for="tarjeta">Tarjeta
+      <input type="radio" name="tarjeta" id="tarjeta" value="tarjeta"></input>
+      </label>
+    </div>
+
+    </fieldset>
+
+    <!--Zona checks y aceptar-->
+    <label class="check">
+    <input type="checkbox" name="cond" id="cond"></input>
+    <p> Acepto las condiciones de alta</p>
+    </label>
+
+    <input type="submit" value="Enviar" id="enviar"></input>
+
+    <div id="nota">Nota: los campos marcados con "*" son obligatorios</div>
+
+    <!-- Incluyo un div vacío para poner los errores del formulario -->
+    <div class="errores"></div>
+    </form>
+
+  </body>
+</html>
