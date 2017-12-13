@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>alta formulario</title>
+    <script type="text/javascript">
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+      }
+
+        // window.sessionStorage.getItem("dni");
+        // window.localStorage.getItem("email");
+      onload = function(){
+
+          document.body.innerHTML += "<p>La cookie almacenada es " + getCookie("nombre") + "</p>";
+          document.body.innerHTML += "<p>Los apellidos del usuario son"+ getCookie("apellidos") + "</p>";
+          document.body.innerHTML += "<p>el email del usuario es: "+ window.localStorage.getItem("email") + "</p>";
+          document.body.innerHTML += "<p>El dni del usuario es: "+ window.sessionStorage.getItem("DNI") + "</p>";
+        }
+
+    </script>
+  </head>
+  <body>
+<p>Loinim veniam, qurure dolor in reprehenderi dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </body>
+</html>

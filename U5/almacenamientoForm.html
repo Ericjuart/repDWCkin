@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>U4 Práctica 2: Formulario</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded",function(){
+        var formulario = document.forms[0];
+        formulario.onsubmit = function(e){
+            var ret = true;
+            var err = document.getElementsByClassName('errores')[0];
+            var errList ="";
+            e.preventDefault();
+            //validamos el nombre
+            var nom = document.getElementsByName('nombre')[0].value;
+            if (nom == null || nom.length == 0){
+                errList += "introduce un nombre<br>";
+                 ret = false;
+            }
+
+            var ape = document.getElementsByName('apellidos')[0].value;
+            if (ape== null || ape.length == 0){
+              errList += "introduce los apellidos<br>";
+                 ret = false;
+            }
+
+            var email = document.getElementById('email').value;
+            if (email == null || email == ""){
+              errList += "introduce un email<br>";
+                 ret = false;
+            }
+
+            var rep = document.getElementById('emailRepe').value;
+            if (rep == null || rep == ""){
+              errList += "repite el email introducido anteriormente<br>";
+                 ret = false;
+            }
+
+            var dni = document.getElementById('dni').value;
+            if (dni == null || dni.length == 0){
+              errList += "rellena el campo del DNI<br>";
+                 ret = false;
+            }
+
+            var fech = document.getElementById('fecha').value;
+            if (fech == null || fech.length == 0){
+              errList += "selecciona la fecha de nacimiento<br>";
+                 ret = false;
+            }
+
+            var rep = document.getElementById('seccion').value;
+            if (rep == 0 ){
+              errList += "selecciona la seccion favorita<br>";
+                ret = false;
+            }
+            if(efectivo.checked==false && tarjeta.checked==false){
+              errList += "selecciona el metodo de pago<br>";
+              ret = false;
+            }
+            if (cond.checked==false) {
+              errList += "no ha aceptado las condiciones<br>";
+              ret = false;
+            }
+            function setCookie(name,value,days) {
+           if (days) {
+             var date = new Date();
+             date.setTime(date.getTime()+(days*24*60*60*1000));
+             var expires = ";expires="+date.toGMTString();
+           }
+           else var expires = "";
+
+           document.cookie = name+"="+value+expires+";path=/";
+           console.log(document.cookie);
+         }
+
+
+
+            if (ret){
+              err.style.color="blue";
+              // guardamos las cookies durante 1 año
+              var name = "nombre";
+              var value = document.getElementById("nombre").value;
+              var days = 365;
+              setCookie(name,value,days);
+              var ape = "apellidos";
+              var value1 = document.getElementById("apellidos").value;
+              setCookie(ape,value1,days);
+              // guardamos el email permanentemente en local
+              var emailLocal = "email";
+              var emailValue = document.getElementById("email").value;
+              window.localStorage.setItem(emailLocal,emailValue);
+
+              //guardamos el dni solo lo que dure la sesion
+              var dniSesion = "DNI";
+              var dniValue = document.getElementById("dni").value;
+              window.sessionStorage.setItem(dniSesion,dniValue);
+              formulario.action="alta.html";
+              formulario.submit();
+            }else{
+              err.style.color="red";
+            }
+            err.innerHTML = errList;
+            return ret;
+
+          }
+      });
+    </script>
+  </head>
+  <body>
+    <form id="formulario" action="#" method="post" enctype="application/x-www-urlencoded">
+    <!--Zona info personal-->
+    <h1>Formulario alta</h1>
+    <fieldset>
+    <legend>Información personal</legend>
+    <div>
+    <label for="nombre">Nombre*:</label>
+    <input type="text" name="nombre" id="nombre" autofocus="autofocus" placeholder="Introduce el nombre..."></input>
+    </div>
+
+    <div>
+    <label for="apellidos">Apellidos*:</label>
+    <input type="text" name="apellidos" id="apellidos"></input>
+    </div>
+
+    <div>
+    <label for="email">Email*:</label>
+    <input type="email" name="email" id="email"></input>
+    </div>
+
+    <div>
+    <label for="email">Repetir email*:</label>
+    <input type="email" name="email" id="emailRepe"></input>
+    </div>
+
+    <div>
+    <label for="dni">DNI:</label>
+    <input type="text" name="dni" id="dni"></input>
+    </div>
+
+    <div id="inputFecha">
+    <label for="fecha">Fecha nacimiento*:</label>
+    <input type="date" name="fecha" id="fecha"></input>
+    </div>
+
+    <div id="seccion">
+    <label for="selector">Sección favorita*:</label>
+    <select name="seccion" id="selector">
+    <option value="0">Escoge una sección </option>
+    <option value="discos">Discos</option>
+    <option value="libros">Libros</option>
+    <option value="tecnologia">Tecnología</option>
+    </select>
+    </div>
+    <div>
+      <p>Modo preferente de pago*:</p>
+    </div>
+    <div id="radio">
+      <label for="efectivo">Efectivo
+      <input type="radio" name="efectivo" id="efectivo" value="efectivo"></input>
+      </label>
+      <label for="tarjeta">Tarjeta
+      <input type="radio" name="tarjeta" id="tarjeta" value="tarjeta"></input>
+      </label>
+    </div>
+
+    </fieldset>
+
+    <!--Zona checks y aceptar-->
+    <label class="check">
+    <input type="checkbox" name="cond" id="cond"></input>
+    <p> Acepto las condiciones de alta</p>
+    </label>
+
+    <input type="submit" value="Enviar" id="enviar"></input>
+
+    <div id="nota">Nota: los campos marcados con "*" son obligatorios</div>
+
+    <!-- Incluyo un div vacío para poner los errores del formulario -->
+    <div class="errores"></div>
+    </form>
+
+  </body>
+</html>
