@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      onload = function(){
+        if (window.XMLHttpRequest) {
+          var xhr = new XMLHttpRequest();
+        }else if (ActiveXObject("Microsoft.XMLHTTP")) {
+          var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        btn.onclick = function(){
+          var url = "datosServidor.txt";
+          xhr.open("POST",url,true);
+          xhr.onreadystatechange = muestraResultado;
+          xhr.send();
+        }
+        function muestraResultado(){
+          // console.log(xhr.readyState); //datos enviados al servidor
+          // console.log(xhr.status); // respuesta del servidor
+          // console.log(xhr.getAllResponseHeaders());
+          if (xhr.readyState == 4 && xhr.status==200) {
+            resultado.innerHTML = xhr.responseText;
+          }else if(xhr.status!=200){
+            alert(xhr.statusText);
+          }
+        }
+
+    }
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

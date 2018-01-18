@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 3</title>
+    <script type="text/javascript">
+    var xhr = new XMLHttpRequest();
+    onload = function(){
+      buscador.onkeyup = function(){
+        var letra = buscador.value;
+        xhr.open("GET","U6Ej3Sugerencias.php?q="+letra,"true");
+        xhr.onreadystatechange = function(){
+           if (xhr.readyState == 4 && xhr.status == 200){
+             sugerencia.innerHTML = xhr.responseText;
+           }
+         }
+         xhr.send();
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <form method="get">
+      <label>Introduzca su nombre: </label>
+      <input type="text" name="nombre" id="buscador">
+      <p>Sugerencias: <span id="sugerencia"></span> </p>
+    </form>
+  </body>
+</html>

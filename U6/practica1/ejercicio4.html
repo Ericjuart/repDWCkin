@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 4</title>
+    <script type="text/javascript">
+    if (XMLHttpRequest){
+     var xhr = new XMLHttpRequest();
+    }else if(ActiveXObject("Microsoft.XMLHTTP")){
+     var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+   onload = function(){
+     document.forms[0].onsubmit = function(e){
+       e.preventDefault();
+       var url = "./U6Ej4LoginJSON.php";
+       xhr.open("POST",url,true);
+       xhr.onreadystatechange = function(){
+         if(xhr.readyState == 4 && xhr.status == 200){
+           var respuesta = xhr.responseText;
+           console.log(respuesta);
+           if (respuesta == "1"){
+             var salida = "Mostramos Home usuario logado";
+           }else{
+             var salida = "Mostramos las opciones para darse de alta o recuperar password";
+           }
+           document.getElementById("resLogin").innerHTML = salida;
+         } else if(xhr.readyState == 4){
+            alert("Se ha producido un error al obtener los datos"
+            + "\n\nreadyState:" + xhr.readyState
+            + "\nstatus: " + xhr.status
+            + "\nheaders: " + xhr.getAllResponseHeaders());
+          }
+          if (usuario != "manuel" || password != "1234") {
+            console.log("hola");
+            var obj = JSON.parse(strLogin);
+            document.getElementById("resLogin").innerHTML = strLogin;
+          }
+       }
+       var usuario = document.getElementById("usuario").value;
+       var password = document.getElementById("password").value;
+       function obtenDatosLogin(){
+
+        var strLogin = "usuario=" + encodeURIComponent(usuario) + "&password=" + encodeURIComponent(password);
+        console.log(strLogin);
+        return strLogin;
+
+
+
+        }
+        xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        var datosLogin = obtenDatosLogin();
+        xhr.send(datosLogin);
+     }
+   }
+    </script>
+  </head>
+  <body>
+
+    <form action="#" method="post">
+      <div>
+        <label>Usuario:</label>
+        <input type="text" name="usuario" id="usuario">
+      </div>
+      <br>
+      <div>
+        <label>Contraseña:</label>
+        <input type="password" name="contraseña" id="password">
+      </div>
+      <input type="submit" name="Enviar">
+
+      <div id="resLogin"></div>
+    </form>
+  </body>
+</html>
