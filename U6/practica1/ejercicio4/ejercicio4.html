@@ -11,17 +11,23 @@
     }
    onload = function(){
      document.forms[0].onsubmit = function(e){
-       e.preventDefault();
+       // e.preventDefault();
        var url = "./U6Ej4LoginJSON.php";
        xhr.open("POST",url,true);
        xhr.onreadystatechange = function(){
          if(xhr.readyState == 4 && xhr.status == 200){
-           var respuesta = xhr.responseText;
-           console.log(respuesta);
-           if (respuesta == "1"){
-             var salida = "Mostramos Home usuario logado";
+
+           console.log(xhr.responseText);
+           var k = JSON.parse(xhr.responseText);
+
+           console.log(k);
+           if (k.res){
+             var salida = "Home logado";
+             var token = "token";
+             var tokenValue = k.token;
+             window.localStorage.setItem(token,tokenValue);
            }else{
-             var salida = "Mostramos las opciones para darse de alta o recuperar password";
+             alert("error");
            }
            document.getElementById("resLogin").innerHTML = salida;
          } else if(xhr.readyState == 4){
@@ -30,11 +36,7 @@
             + "\nstatus: " + xhr.status
             + "\nheaders: " + xhr.getAllResponseHeaders());
           }
-          if (usuario != "manuel" || password != "1234") {
-            console.log("hola");
-            var obj = JSON.parse(strLogin);
-            document.getElementById("resLogin").innerHTML = strLogin;
-          }
+
        }
        var usuario = document.getElementById("usuario").value;
        var password = document.getElementById("password").value;
@@ -43,8 +45,6 @@
         var strLogin = "usuario=" + encodeURIComponent(usuario) + "&password=" + encodeURIComponent(password);
         console.log(strLogin);
         return strLogin;
-
-
 
         }
         xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
@@ -56,7 +56,7 @@
   </head>
   <body>
 
-    <form action="#" method="post">
+    <form action="homeLogado.html" method="post">
       <div>
         <label>Usuario:</label>
         <input type="text" name="usuario" id="usuario">

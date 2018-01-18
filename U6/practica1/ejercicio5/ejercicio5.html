@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 1 y 2 Ajax</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        if (window.XMLHttpRequest) {
+          var xhr = new XMLHttpRequest();
+        }else if (ActiveXObject("Microsoft.XMLHTTP")) {
+          var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+         var alt = Math.floor((Math.random()*4)+1);
+         console.log(alt);
+         var url = "noticia"+alt+".txt";
+         console.log(url);
+         $("#noticia").load(url);
+
+
+      });
+    </script>
+    <style media="screen">
+      h1{
+      text-align: center;
+      }
+      #noticia{
+        font-weight: bold;
+        border: 1px solid red;
+        text-align: center;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Noticias</h1>
+    <p id="noticia"></p>
+  </body>
+</html>
