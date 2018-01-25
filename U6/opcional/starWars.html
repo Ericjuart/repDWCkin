@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Wiki Star Wars</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+    onload= function(){
+      $(document).ready(function(){
+        $("#selector").change(function(){
+          var valor = $("#selector").val();
+          var url = "https://swapi.co/api/";
+          url += valor;
+          console.log(valor);
+          $.getJSON(url,function(data,st,xhr){
+            if (st == "success") {
+              var array = data.results;
+              if (valor == "people") {
+                var selector = $("<select/>").attr("class","personajes");
+                $("body").append(selector);
+                $.each(array,function(i,item){
+                  var nombre = data.results[i].name;
+                  console.log(nombre);
+                  var opcion = $("<option/>").attr("value",nombre);
+                  $(".personajes").append(opcion);
+                  $(opcion).text(nombre);
+                  $(".planetas,.naves").css("display","none");
+
+                })
+              }
+
+              else if (valor == "planets") {
+                var selector = $("<select/>").attr("class","planetas");
+                $("body").append(selector);
+                $.each(array,function(i,item){
+                  var nombre = data.results[i].name;
+                  console.log(nombre);
+                  var opcion = $("<option/>").attr("value",nombre);
+                  $(".planetas").append(opcion);
+                  $(opcion).text(nombre);
+                  $(".personajes,.naves").css("display","none");
+
+                  if ($(".planetas").val() == nombre) {
+
+                      var rot = data.results[i].rotation_period;
+                      var orb = data.results[i].orbital_period;
+                      var dia = data.results[i].diameter;
+                      var clim = data.results[i].climate;
+                      var gra = data.results[i].gravity;
+                      var ter = data.results[i].terrain;
+                      var sur = data.results[i].surface_water;
+                      var pob = data.results[i].population;
+
+                      console.log(data.results[i]);
+                      console.log(rot);
+                      var lista = $("<ul/>");
+                      var ul = $("body").append(lista);
+                      for(i=0;i<8;i++){
+                        var li = $("<li/>");
+                        $(lista).append(li);
+                      }
+                      $(".planetas").change(function(){
+
+                        var arrli= document.getElementsByTagName("li");
+                        $.each(arrli,function(i,item) {
+
+                          arrli[0].innerHTML="periodo de rotacion: "+rot;
+                          arrli[1].innerHTML="periodo orbital: "+ orb;
+                          arrli[2].innerHTML="diametro: "+ dia;
+                          arrli[3].innerHTML="clima: "+ clim;
+                          arrli[4].innerHTML="gravedad: "+ gra;
+                          arrli[5].innerHTML="terreno: "+ ter;
+                          arrli[6].innerHTML="agua en la superficie: "+ sur;
+                          arrli[7].innerHTML="poblacion: "+ pob;
+                        })
+                      })
+                  }
+                })
+              }
+
+              else if (valor == "starships") {
+                var selector = $("<select/>").attr("class","naves");
+                $("body").append(selector);
+                $.each(array,function(i,item){
+                  var nombre = data.results[i].name;
+                  console.log(nombre);
+                  var opcion = $("<option/>").attr("value",nombre);
+                  $(".naves").append(opcion);
+                  $(opcion).text(nombre);
+                  $(".planetas,.personajes").css("display",nombre);
+                })
+              }
+
+            }
+          });
+
+        });
+      });
+    }
+    </script>
+  </head>
+  <body>
+    <h1>Wiki Star Wars</h1>
+    <select id="selector">
+      <option value="0">Selecciona</option>
+      <option value="people">Personajes</option>
+      <option value="planets">Planetas</option>
+      <option value="starships">Naves</option>
+    </select>
+  </body>
+</html>
